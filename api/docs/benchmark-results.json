@@ -1,0 +1,757 @@
+{
+  "n": 200000,
+  "mongoVersion": "8.3.7",
+  "redis": "connected",
+  "queries": {
+    "A": {
+      "staff_list": {
+        "name": "Staff dashboard list (1 staff, last 60 days, limit 1000)",
+        "medianMs": 126.289678,
+        "maxMs": 175.435299,
+        "rows": 1000,
+        "plan": {
+          "scan": "COLLSCAN",
+          "covered": false,
+          "docs": 200000,
+          "keys": 0,
+          "serverMs": 131,
+          "indexes": []
+        }
+      },
+      "my_bookings": {
+        "name": "Customer \"my bookings\" (1 customer)",
+        "medianMs": 83.3107,
+        "maxMs": 111.214004,
+        "rows": 241,
+        "plan": {
+          "scan": "COLLSCAN",
+          "covered": false,
+          "docs": 200000,
+          "keys": 0,
+          "serverMs": 90,
+          "indexes": []
+        }
+      },
+      "slot_lookup": {
+        "name": "Slot check: bookings of one day (booking page)",
+        "medianMs": 105.385138,
+        "maxMs": 118.573905,
+        "rows": 0,
+        "plan": {
+          "scan": "COLLSCAN",
+          "covered": false,
+          "docs": 200000,
+          "keys": 0,
+          "serverMs": 116,
+          "indexes": []
+        }
+      },
+      "trends_all_7d": {
+        "name": "Analytics trends, 7 days, all staff (admin)",
+        "medianMs": 150.597774,
+        "maxMs": 177.449493,
+        "rows": 6,
+        "plan": {
+          "scan": "COLLSCAN",
+          "covered": false,
+          "docs": 200000,
+          "keys": 0,
+          "serverMs": 149,
+          "indexes": []
+        }
+      },
+      "trends_staff_7d": {
+        "name": "Analytics trends, 7 days, one staff member",
+        "medianMs": 131.214916,
+        "maxMs": 193.728049,
+        "rows": 6,
+        "plan": {
+          "scan": "COLLSCAN",
+          "covered": false,
+          "docs": 200000,
+          "keys": 0,
+          "serverMs": 146,
+          "indexes": []
+        }
+      },
+      "trends_staff": {
+        "name": "Analytics trends, 90 days, one staff member",
+        "medianMs": 255.071023,
+        "maxMs": 315.532308,
+        "rows": 65,
+        "plan": {
+          "scan": "COLLSCAN",
+          "covered": false,
+          "docs": 200000,
+          "keys": 0,
+          "serverMs": 243,
+          "indexes": []
+        }
+      },
+      "trends_all": {
+        "name": "Analytics trends, 90 days, all staff (admin)",
+        "medianMs": 550.839419,
+        "maxMs": 623.602695,
+        "rows": 65,
+        "plan": {
+          "scan": "COLLSCAN",
+          "covered": false,
+          "docs": 200000,
+          "keys": 0,
+          "serverMs": 567,
+          "indexes": []
+        }
+      },
+      "peak_all": {
+        "name": "Analytics peak times, 90 days, all staff",
+        "medianMs": 429.666224,
+        "maxMs": 505.49204,
+        "rows": 40,
+        "plan": {
+          "scan": "COLLSCAN",
+          "covered": false,
+          "docs": 200000,
+          "keys": 0,
+          "serverMs": 447,
+          "indexes": []
+        }
+      },
+      "util_all": {
+        "name": "Analytics staff utilization, 90 days",
+        "medianMs": 618.692122,
+        "maxMs": 702.791054,
+        "rows": 3,
+        "plan": {
+          "scan": "COLLSCAN",
+          "covered": false,
+          "docs": 200000,
+          "keys": 0,
+          "serverMs": 625,
+          "indexes": []
+        }
+      },
+      "summary_all": {
+        "name": "Analytics summary (KPIs), 90 days",
+        "medianMs": 192.351559,
+        "maxMs": 250.453483,
+        "rows": 1,
+        "plan": {
+          "scan": "COLLSCAN",
+          "covered": false,
+          "docs": 200000,
+          "keys": 0,
+          "serverMs": 284,
+          "indexes": []
+        }
+      }
+    },
+    "B": {
+      "staff_list": {
+        "name": "Staff dashboard list (1 staff, last 60 days, limit 1000)",
+        "medianMs": 16.841447,
+        "maxMs": 36.655399,
+        "rows": 1000,
+        "plan": {
+          "scan": "IXSCAN",
+          "covered": false,
+          "docs": 1000,
+          "keys": 1000,
+          "serverMs": 2,
+          "indexes": [
+            "staff_1_slotStart_1"
+          ]
+        }
+      },
+      "my_bookings": {
+        "name": "Customer \"my bookings\" (1 customer)",
+        "medianMs": 3.322349,
+        "maxMs": 7.739717,
+        "rows": 241,
+        "plan": {
+          "scan": "IXSCAN",
+          "covered": false,
+          "docs": 241,
+          "keys": 241,
+          "serverMs": 0,
+          "indexes": [
+            "customer_1_slotStart_-1"
+          ]
+        }
+      },
+      "slot_lookup": {
+        "name": "Slot check: bookings of one day (booking page)",
+        "medianMs": 0.952651,
+        "maxMs": 1.053477,
+        "rows": 0,
+        "plan": {
+          "scan": "IXSCAN",
+          "covered": true,
+          "docs": 0,
+          "keys": 5,
+          "serverMs": 0,
+          "indexes": [
+            "staff_1_slotStart_1"
+          ]
+        }
+      },
+      "trends_all_7d": {
+        "name": "Analytics trends, 7 days, all staff (admin)",
+        "medianMs": 157.997166,
+        "maxMs": 181.428595,
+        "rows": 6,
+        "plan": {
+          "scan": "COLLSCAN",
+          "covered": false,
+          "docs": 200000,
+          "keys": 0,
+          "serverMs": 149,
+          "indexes": []
+        }
+      },
+      "trends_staff_7d": {
+        "name": "Analytics trends, 7 days, one staff member",
+        "medianMs": 26.776136,
+        "maxMs": 28.875123,
+        "rows": 6,
+        "plan": {
+          "scan": "IXSCAN",
+          "covered": false,
+          "docs": 1449,
+          "keys": 1449,
+          "serverMs": 25,
+          "indexes": [
+            "staff_1_slotStart_1"
+          ]
+        }
+      },
+      "trends_staff": {
+        "name": "Analytics trends, 90 days, one staff member",
+        "medianMs": 232.213161,
+        "maxMs": 250.966077,
+        "rows": 65,
+        "plan": {
+          "scan": "IXSCAN",
+          "covered": false,
+          "docs": 15104,
+          "keys": 15104,
+          "serverMs": 271,
+          "indexes": [
+            "staff_1_slotStart_1"
+          ]
+        }
+      },
+      "trends_all": {
+        "name": "Analytics trends, 90 days, all staff (admin)",
+        "medianMs": 596.40196,
+        "maxMs": 648.704192,
+        "rows": 65,
+        "plan": {
+          "scan": "COLLSCAN",
+          "covered": false,
+          "docs": 200000,
+          "keys": 0,
+          "serverMs": 559,
+          "indexes": []
+        }
+      },
+      "peak_all": {
+        "name": "Analytics peak times, 90 days, all staff",
+        "medianMs": 428.818064,
+        "maxMs": 468.379754,
+        "rows": 40,
+        "plan": {
+          "scan": "COLLSCAN",
+          "covered": false,
+          "docs": 200000,
+          "keys": 0,
+          "serverMs": 432,
+          "indexes": []
+        }
+      },
+      "util_all": {
+        "name": "Analytics staff utilization, 90 days",
+        "medianMs": 659.39518,
+        "maxMs": 727.834275,
+        "rows": 3,
+        "plan": {
+          "scan": "COLLSCAN",
+          "covered": false,
+          "docs": 200000,
+          "keys": 0,
+          "serverMs": 611,
+          "indexes": []
+        }
+      },
+      "summary_all": {
+        "name": "Analytics summary (KPIs), 90 days",
+        "medianMs": 219.250513,
+        "maxMs": 258.735509,
+        "rows": 1,
+        "plan": {
+          "scan": "COLLSCAN",
+          "covered": false,
+          "docs": 200000,
+          "keys": 0,
+          "serverMs": 248,
+          "indexes": []
+        }
+      }
+    },
+    "C": {
+      "staff_list": {
+        "name": "Staff dashboard list (1 staff, last 60 days, limit 1000)",
+        "medianMs": 19.378067,
+        "maxMs": 28.882721,
+        "rows": 1000,
+        "plan": {
+          "scan": "IXSCAN",
+          "covered": false,
+          "docs": 1000,
+          "keys": 1000,
+          "serverMs": 3,
+          "indexes": [
+            "staff_1_slotStart_1_status_1_slotEnd_1",
+            "slotStart_1_status_1_staff_1_slotEnd_1"
+          ]
+        }
+      },
+      "my_bookings": {
+        "name": "Customer \"my bookings\" (1 customer)",
+        "medianMs": 3.011688,
+        "maxMs": 5.821919,
+        "rows": 241,
+        "plan": {
+          "scan": "IXSCAN",
+          "covered": false,
+          "docs": 241,
+          "keys": 241,
+          "serverMs": 0,
+          "indexes": [
+            "customer_1_slotStart_-1"
+          ]
+        }
+      },
+      "slot_lookup": {
+        "name": "Slot check: bookings of one day (booking page)",
+        "medianMs": 1.034723,
+        "maxMs": 2.562172,
+        "rows": 0,
+        "plan": {
+          "scan": "IXSCAN",
+          "covered": true,
+          "docs": 0,
+          "keys": 1,
+          "serverMs": 0,
+          "indexes": [
+            "slotStart_1_status_1_staff_1_slotEnd_1",
+            "staff_1_slotStart_1_status_1_slotEnd_1"
+          ]
+        }
+      },
+      "trends_all_7d": {
+        "name": "Analytics trends, 7 days, all staff (admin)",
+        "medianMs": 60.783242,
+        "maxMs": 65.849341,
+        "rows": 6,
+        "plan": {
+          "scan": "IXSCAN",
+          "covered": true,
+          "docs": 0,
+          "keys": 4304,
+          "serverMs": 58,
+          "indexes": [
+            "slotStart_1_status_1_staff_1_slotEnd_1"
+          ]
+        }
+      },
+      "trends_staff_7d": {
+        "name": "Analytics trends, 7 days, one staff member",
+        "medianMs": 23.338265,
+        "maxMs": 25.070113,
+        "rows": 6,
+        "plan": {
+          "scan": "IXSCAN",
+          "covered": true,
+          "docs": 0,
+          "keys": 1449,
+          "serverMs": 22,
+          "indexes": [
+            "staff_1_slotStart_1_status_1_slotEnd_1",
+            "slotStart_1_status_1_staff_1_slotEnd_1"
+          ]
+        }
+      },
+      "trends_staff": {
+        "name": "Analytics trends, 90 days, one staff member",
+        "medianMs": 192.437433,
+        "maxMs": 210.903754,
+        "rows": 65,
+        "plan": {
+          "scan": "IXSCAN",
+          "covered": true,
+          "docs": 0,
+          "keys": 15104,
+          "serverMs": 185,
+          "indexes": [
+            "staff_1_slotStart_1_status_1_slotEnd_1",
+            "slotStart_1_status_1_staff_1_slotEnd_1"
+          ]
+        }
+      },
+      "trends_all": {
+        "name": "Analytics trends, 90 days, all staff (admin)",
+        "medianMs": 605.227063,
+        "maxMs": 636.671298,
+        "rows": 65,
+        "plan": {
+          "scan": "IXSCAN",
+          "covered": true,
+          "docs": 0,
+          "keys": 45994,
+          "serverMs": 647,
+          "indexes": [
+            "slotStart_1_status_1_staff_1_slotEnd_1"
+          ]
+        }
+      },
+      "peak_all": {
+        "name": "Analytics peak times, 90 days, all staff",
+        "medianMs": 439.772563,
+        "maxMs": 456.779033,
+        "rows": 40,
+        "plan": {
+          "scan": "IXSCAN",
+          "covered": true,
+          "docs": 0,
+          "keys": 41621,
+          "serverMs": 444,
+          "indexes": [
+            "slotStart_1_status_1_staff_1_slotEnd_1"
+          ]
+        }
+      },
+      "util_all": {
+        "name": "Analytics staff utilization, 90 days",
+        "medianMs": 548.947881,
+        "maxMs": 584.96179,
+        "rows": 3,
+        "plan": {
+          "scan": "IXSCAN",
+          "covered": true,
+          "docs": 0,
+          "keys": 45994,
+          "serverMs": 554,
+          "indexes": [
+            "slotStart_1_status_1_staff_1_slotEnd_1"
+          ]
+        }
+      },
+      "summary_all": {
+        "name": "Analytics summary (KPIs), 90 days",
+        "medianMs": 208.579221,
+        "maxMs": 277.67365,
+        "rows": 1,
+        "plan": {
+          "scan": "IXSCAN",
+          "covered": false,
+          "docs": 45994,
+          "keys": 45994,
+          "serverMs": 216,
+          "indexes": [
+            "slotStart_1_status_1_staff_1_slotEnd_1"
+          ]
+        }
+      }
+    }
+  },
+  "profiler": {
+    "A": {
+      "supported": true,
+      "slow": [
+        {
+          "op": "command",
+          "millis": 557,
+          "plan": "COLLSCAN",
+          "docsExamined": 200000,
+          "keysExamined": 0,
+          "returned": 3,
+          "what": "aggregate ($match > $group)"
+        },
+        {
+          "op": "command",
+          "millis": 555,
+          "plan": "COLLSCAN",
+          "docsExamined": 200000,
+          "keysExamined": 0,
+          "returned": 65,
+          "what": "aggregate ($match > $group > $sort > $project)"
+        },
+        {
+          "op": "command",
+          "millis": 382,
+          "plan": "COLLSCAN",
+          "docsExamined": 200000,
+          "keysExamined": 0,
+          "returned": 40,
+          "what": "aggregate ($match > $group)"
+        },
+        {
+          "op": "command",
+          "millis": 288,
+          "plan": "COLLSCAN",
+          "docsExamined": 200000,
+          "keysExamined": 0,
+          "returned": 65,
+          "what": "aggregate ($match > $group > $sort > $project)"
+        },
+        {
+          "op": "command",
+          "millis": 204,
+          "plan": "COLLSCAN",
+          "docsExamined": 200000,
+          "keysExamined": 0,
+          "returned": 6,
+          "what": "aggregate ($match > $group > $sort > $project)"
+        },
+        {
+          "op": "command",
+          "millis": 195,
+          "plan": "COLLSCAN",
+          "docsExamined": 200000,
+          "keysExamined": 0,
+          "returned": 1,
+          "what": "aggregate ($match > $facet)"
+        },
+        {
+          "op": "command",
+          "millis": 144,
+          "plan": "COLLSCAN",
+          "docsExamined": 200000,
+          "keysExamined": 0,
+          "returned": 6,
+          "what": "aggregate ($match > $group > $sort > $project)"
+        },
+        {
+          "op": "query",
+          "millis": 124,
+          "plan": "COLLSCAN",
+          "docsExamined": 200000,
+          "keysExamined": 0,
+          "returned": 0,
+          "what": "find {\"status\":{\"$ne\":\"cancelled\"},\"slotStart\":{\"$gte\":\"2026-11-21T00:00:00.000Z\",\"$lt\":\"2026-1"
+        },
+        {
+          "op": "query",
+          "millis": 106,
+          "plan": "COLLSCAN",
+          "docsExamined": 200000,
+          "keysExamined": 0,
+          "returned": 101,
+          "what": "find {\"staff\":\"6b05f8b6666355a0e2484e38\",\"slotStart\":{\"$gte\":\"2026-09-25T20:51:05.646Z\"}}"
+        },
+        {
+          "op": "query",
+          "millis": 103,
+          "plan": "COLLSCAN",
+          "docsExamined": 200000,
+          "keysExamined": 0,
+          "returned": 101,
+          "what": "find {\"customer\":\"6b05f8b6666355a0e2484e3e\"}"
+        }
+      ]
+    },
+    "B": {
+      "supported": true,
+      "slow": [
+        {
+          "op": "command",
+          "millis": 575,
+          "plan": "COLLSCAN",
+          "docsExamined": 200000,
+          "keysExamined": 0,
+          "returned": 3,
+          "what": "aggregate ($match > $group)"
+        },
+        {
+          "op": "command",
+          "millis": 543,
+          "plan": "COLLSCAN",
+          "docsExamined": 200000,
+          "keysExamined": 0,
+          "returned": 65,
+          "what": "aggregate ($match > $group > $sort > $project)"
+        },
+        {
+          "op": "command",
+          "millis": 401,
+          "plan": "COLLSCAN",
+          "docsExamined": 200000,
+          "keysExamined": 0,
+          "returned": 40,
+          "what": "aggregate ($match > $group)"
+        },
+        {
+          "op": "command",
+          "millis": 247,
+          "plan": "IXSCAN { staff: 1, slotStart: 1 }",
+          "docsExamined": 15104,
+          "keysExamined": 15104,
+          "returned": 65,
+          "what": "aggregate ($match > $group > $sort > $project)"
+        },
+        {
+          "op": "command",
+          "millis": 203,
+          "plan": "COLLSCAN",
+          "docsExamined": 200000,
+          "keysExamined": 0,
+          "returned": 1,
+          "what": "aggregate ($match > $facet)"
+        },
+        {
+          "op": "command",
+          "millis": 187,
+          "plan": "COLLSCAN",
+          "docsExamined": 200000,
+          "keysExamined": 0,
+          "returned": 6,
+          "what": "aggregate ($match > $group > $sort > $project)"
+        }
+      ]
+    },
+    "C": {
+      "supported": true,
+      "slow": [
+        {
+          "op": "command",
+          "millis": 715,
+          "plan": "IXSCAN { slotStart: 1, status: 1, staff: 1, slotEnd: 1 }",
+          "docsExamined": 0,
+          "keysExamined": 45994,
+          "returned": 3,
+          "what": "aggregate ($match > $group)"
+        },
+        {
+          "op": "command",
+          "millis": 587,
+          "plan": "IXSCAN { slotStart: 1, status: 1, staff: 1, slotEnd: 1 }",
+          "docsExamined": 0,
+          "keysExamined": 45994,
+          "returned": 65,
+          "what": "aggregate ($match > $group > $sort > $project)"
+        },
+        {
+          "op": "command",
+          "millis": 484,
+          "plan": "IXSCAN { slotStart: 1, status: 1, staff: 1, slotEnd: 1 }",
+          "docsExamined": 0,
+          "keysExamined": 41621,
+          "returned": 40,
+          "what": "aggregate ($match > $group)"
+        },
+        {
+          "op": "command",
+          "millis": 255,
+          "plan": "IXSCAN { slotStart: 1, status: 1, staff: 1, slotEnd: 1 }",
+          "docsExamined": 45994,
+          "keysExamined": 45994,
+          "returned": 1,
+          "what": "aggregate ($match > $facet)"
+        },
+        {
+          "op": "command",
+          "millis": 197,
+          "plan": "IXSCAN { staff: 1, slotStart: 1, status: 1, slotEnd: 1 }",
+          "docsExamined": 0,
+          "keysExamined": 15104,
+          "returned": 65,
+          "what": "aggregate ($match > $group > $sort > $project)"
+        },
+        {
+          "op": "command",
+          "millis": 60,
+          "plan": "IXSCAN { slotStart: 1, status: 1, staff: 1, slotEnd: 1 }",
+          "docsExamined": 0,
+          "keysExamined": 4304,
+          "returned": 6,
+          "what": "aggregate ($match > $group > $sort > $project)"
+        }
+      ]
+    }
+  },
+  "writes": {
+    "A": 12.648770533333334,
+    "B": 17.031793733333334,
+    "C": 26.23947006666667
+  },
+  "cache": {
+    "redis": {
+      "direct": {
+        "trends": {
+          "missMs": 633.939984,
+          "hitMs": 0.134324
+        },
+        "peak": {
+          "missMs": 448.53706,
+          "hitMs": 0.117089
+        },
+        "utilization": {
+          "missMs": 572.666435,
+          "hitMs": 0.103264
+        }
+      },
+      "http": {
+        "trends": {
+          "uncachedMs": 622.184657,
+          "cachedMs": 1.576638
+        },
+        "peak-times": {
+          "uncachedMs": 463.171249,
+          "cachedMs": 1.409983
+        },
+        "staff-utilization": {
+          "uncachedMs": 601.875787,
+          "cachedMs": 1.678375
+        },
+        "summary": {
+          "uncachedMs": 213.714948,
+          "cachedMs": 1.360217
+        }
+      }
+    },
+    "memory": {
+      "direct": {
+        "trends": {
+          "missMs": 581.104479,
+          "hitMs": 0.090766
+        },
+        "peak": {
+          "missMs": 461.240665,
+          "hitMs": 0.061027
+        },
+        "utilization": {
+          "missMs": 534.838739,
+          "hitMs": 0.051612
+        }
+      },
+      "http": {
+        "trends": {
+          "uncachedMs": 604.786934,
+          "cachedMs": 1.393485
+        },
+        "peak-times": {
+          "uncachedMs": 422.259458,
+          "cachedMs": 1.240422
+        },
+        "staff-utilization": {
+          "uncachedMs": 522.547156,
+          "cachedMs": 1.183432
+        },
+        "summary": {
+          "uncachedMs": 213.903101,
+          "cachedMs": 1.204627
+        }
+      }
+    }
+  }
+}
